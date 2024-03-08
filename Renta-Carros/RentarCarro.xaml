@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Renta_Carros.RentarCarro"
+             Title="RentarCarro">
+
+    <Grid RowDefinitions="0.15*, 0.85*">
+        <Grid BackgroundColor="LightBlue" HeightRequest="400"/>
+        <RoundRectangle Grid.Row="1" CornerRadius="30" Fill="White"/>
+
+        <Grid Grid.Row="1" RowSpacing="5" Margin="15,15,15,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Orientation="Vertical" Grid.Row="0">
+                <Label Text="Bienvenido" FontFamily="bold" FontSize="Title" TextColor="Black"/>
+                <Label Text="Selecciona un auto." FontFamily="medium" TextColor="Gray"/>
+            </StackLayout>
+
+            <!--#region ENTRY PLACAS -->
+            <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="Fill">
+                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
+                    <StackLayout Orientation="Horizontal" HeightRequest="50">
+                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
+                            <Image Margin="7">
+                                <Image.Source>
+                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
+                                </Image.Source>
+                            </Image>
+                        </Frame>
+                        <Entry x:Name="tbPlacas" FontFamily="medium" Placeholder="Placas" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <!--#endregion-->
+
+            <!--#region ENTRY MARCA -->
+            <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Fill">
+                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
+                    <StackLayout Orientation="Horizontal" HeightRequest="50">
+                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
+                            <Image Margin="7">
+                                <Image.Source>
+                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
+                                </Image.Source>
+                            </Image>
+                        </Frame>
+                        <Entry x:Name="tbMarca" FontFamily="medium" Placeholder="Marca" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <!--#endregion-->
+
+            <!--#region ENTRY MARCA -->
+            <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="Fill">
+                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
+                    <StackLayout Orientation="Horizontal" HeightRequest="50">
+                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
+                            <Image Margin="7">
+                                <Image.Source>
+                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
+                                </Image.Source>
+                            </Image>
+                        </Frame>
+                        <Entry x:Name="tbModelo" FontFamily="medium" Placeholder="Modelo" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <!--#endregion-->
+
+            <!--#region ENTRY AÑO -->
+            <StackLayout Grid.Row="4" Orientation="Vertical" HorizontalOptions="Fill">
+                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
+                    <StackLayout Orientation="Horizontal" HeightRequest="50">
+                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
+                            <Image Margin="7">
+                                <Image.Source>
+                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
+                                </Image.Source>
+                            </Image>
+                        </Frame>
+                        <Entry x:Name="tbAño" FontFamily="medium" Placeholder="Año" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <!--#endregion-->
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

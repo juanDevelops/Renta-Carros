@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Renta_Carros"
+             xmlns:local="clr-namespace:Renta_Carros"
+             x:Class="Renta_Carros.Prueba"
+             Title="Prueba">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModels:CarrosViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <CollectionView ItemsSource="{Binding CarrosCollection}" SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Horizontal" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="30" BackgroundColor="#f1f0f0" BorderColor="Transparent">
+                        <HorizontalStackLayout VerticalOptions="Center">
+                            <Image Source="{Binding Imagen, Converter={StaticResource ByteArrayToImageConverter}}" HeightRequest="100" WidthRequest="100" />
+                            <VerticalStackLayout Margin="10,0,0,0">
+                                <Label x:Name="Marca" Text="{Binding Marca}" FontFamily="bold" TextColor="Black" />
+                                <Label x:Name="Modelo" Text="{Binding Modelo}" FontFamily="medium" TextColor="Black" />
+                                <Label x:Name="Año" Text="{Binding Año}" FontFamily="medium" TextColor="Gray" />
+                                <Label x:Name="Color" Text="{Binding Color}" FontFamily="medium" TextColor="Gray" />
+                                <Label x:Name="Placas" Text="{Binding Placas}" FontFamily="medium" TextColor="Gray" />
+                                <Label x:Name="Precio" Text="{Binding Precio}" FontFamily="medium" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

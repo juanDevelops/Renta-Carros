@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Renta_Carros"
+            xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+android:TabbedPage.ToolbarPlacement="Bottom" BarBackgroundColor="Black" BarTextColor="White"
+             x:Class="Renta_Carros.Menu"
+             Title="Menu">
+
+    <local:Inicio Title="Inicio"></local:Inicio>
+    <local:AgregarCarro Title="Agregar"></local:AgregarCarro>
+    <local:RentarCarro Title="Rentar"></local:RentarCarro>
+    <local:Prueba Title="Prueba"></local:Prueba>
+
+</TabbedPage>
