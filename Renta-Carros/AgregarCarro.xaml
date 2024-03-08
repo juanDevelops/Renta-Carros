@@ -4,14 +4,15 @@
              x:Class="Renta_Carros.AgregarCarro"
              Title="AgregarCarro">
     
-    <Grid RowDefinitions="0.15*, 0.85*">
+    <Grid RowDefinitions="0.10*, 0.85*">
         <Grid BackgroundColor="Gray" HeightRequest="400"/>
         <RoundRectangle Grid.Row="1" CornerRadius="30" Fill="White"/>
 
-        <Grid Grid.Row="1" RowSpacing="1" Margin="15,5,15,0">
+        <Grid Grid.Row="1" RowSpacing="3" Margin="15,5,15,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"/>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="Auto"/>
@@ -19,15 +20,15 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!--<StackLayout Orientation="Vertical" Grid.Row="0">
-                <Label Text="Bienvenido" FontFamily="bold" FontSize="Title" TextColor="Black"/>
-                <Label Text="Rellena los datos para registrar un nuevo auto." FontFamily="medium" TextColor="Gray"/>
-            </StackLayout>-->
+            <StackLayout Orientation="Vertical" Grid.Row="0">
+                <Label Text="Bienvenido" HorizontalTextAlignment="Center" FontFamily="bold" FontSize="Title" TextColor="Black"/>
+                <Label Text="Rellena los datos para registrar un nuevo auto." HorizontalTextAlignment="Center" FontFamily="medium" TextColor="Gray"/>
+            </StackLayout>
 
             <Grid Grid.Row="1">
                 <VerticalStackLayout>
-                    <Image x:Name="imgCarro" Aspect="AspectFit" WidthRequest="90" HeightRequest="90"/>
-                    <Button x:Name="btnCargarFoto" Text="Cargar foto" Clicked="btnCargarFoto_Clicked" HeightRequest="50" TextColor="White" Background="#fcc" CornerRadius="30" HorizontalOptions="FillAndExpand" />
+                    <Image x:Name="imgCarro" Aspect="AspectFit" WidthRequest="150" HeightRequest="120"/>
+                    <Button x:Name="btnCargarFoto" Text="Cargar foto" Clicked="btnCargarFoto_Clicked" HeightRequest="50" TextColor="White" Background="#fcc" CornerRadius="30" HorizontalOptions="Center" WidthRequest="200"/>
                 </VerticalStackLayout>
             </Grid>
 
@@ -35,14 +36,7 @@
             <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
-                            <Image Margin="7">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                        <Entry x:Name="tbMarca" FontFamily="medium" Placeholder="Marca" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbMarca" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Marca" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -52,14 +46,8 @@
             <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
-                            <Image Margin="7">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                        <Entry x:Name="tbModelo" FontFamily="medium" Placeholder="Modelo" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+
+                        <Entry x:Name="tbModelo" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Modelo" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -69,14 +57,8 @@
             <StackLayout Grid.Row="4" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
-                            <Image Margin="7">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                        <Entry x:Name="tbAño" FontFamily="medium" Placeholder="Año" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+
+                        <Entry x:Name="tbAño" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Año" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -86,14 +68,8 @@
             <StackLayout Grid.Row="5" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
-                            <Image Margin="7">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                        <Entry x:Name="tbColor" FontFamily="medium" Placeholder="Color" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+
+                        <Entry x:Name="tbColor" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Color" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -103,14 +79,8 @@
             <StackLayout Grid.Row="6" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
-                            <Image Margin="7">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                        <Entry x:Name="tbPlacas" FontFamily="medium" Placeholder="Placas" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+
+                        <Entry x:Name="tbPlacas" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Placas" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -120,14 +90,8 @@
             <StackLayout Grid.Row="7" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
-                            <Image Margin="7">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                        <Entry x:Name="tbPrecio" FontFamily="medium" Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+
+                        <Entry x:Name="tbPrecio" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>

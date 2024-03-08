@@ -1,31 +1,30 @@
-
-
 namespace Renta_Carros;
 
 public partial class Prueba : ContentPage
 {
-    CarrosViewModel carrosViewModel = new CarrosViewModel();
-
     public Prueba()
     {
         InitializeComponent();
+    }
 
-        //// Obtener la imagen del primer carro en la lista de CarrosViewModel
-        //if (carrosViewModel.CarrosCollection.Count > 0)
-        //{
-        //    var primerCarro = carrosViewModel.CarrosCollection[0];
-        //    //Bytes[] = Magnetometer
-        //    ImageSource imagen = ImageSource.FromStream(() => new MemoryStream(primerCarro.Imagen.AsByteArray)); // Asígnale la imagen a la propiedad
-        //    var stream = new MemoryStream(primerCarro.Imagen.AsByteArray);
-        //    Image aImage = new Image
-        //    {
-        //        Source = ImageSource.FromStream(() => stream)
-        //    };
+    private void btnActualizar_Clicked(object sender, EventArgs e)
+    {
+        CarrosViewModel carros = new CarrosViewModel();
+    }
 
-        //    //aqui modificar el databinding
 
-        //}
+    private async void btnRentar_Clicked(object sender, EventArgs e)
+    {
+        var carroSeleccionado = (Carros)ListaCarros.SelectedItem;
 
+        if (carroSeleccionado != null)
+        {
+            var mensaje = $"Marca: {carroSeleccionado.Marca}\nModelo: {carroSeleccionado.Modelo}\nAño: {carroSeleccionado.Año}";
+            await DisplayAlert("Información del vehículo", mensaje, "Ok");
+        }
+        else
+        {
+            await DisplayAlert("Error", "No se ha seleccionado ningún vehículo.", "Ok");
+        }
     }
 }
-    

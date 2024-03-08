@@ -13,8 +13,24 @@ public partial class AgregarCarro : ContentPage
 
     private async void btnAgregar_Clicked(object sender, EventArgs e)
     {
-        db.InsertarCarro(filePath, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text);
-        await DisplayAlert("Aviso", "fijate", "Ok");
+        // Validar que ninguno de los parámetros sea nulo
+        if (!string.IsNullOrEmpty(tbMarca.Text) &&
+            !string.IsNullOrEmpty(tbModelo.Text) &&
+            !string.IsNullOrEmpty(tbAño.Text) &&
+            !string.IsNullOrEmpty(tbColor.Text) &&
+            !string.IsNullOrEmpty(tbPlacas.Text) &&
+            !string.IsNullOrEmpty(tbPrecio.Text) &&
+            filePath != "")
+        {
+            // Llamar al método InsertarCarro si todos los parámetros son válidos
+            db.InsertarCarro(filePath, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text);
+            await DisplayAlert("Aviso", "Nuevo auto registrado exitosamente.", "Ok");
+        }
+        else
+        {
+            await DisplayAlert("Error", "Todos los campos son requeridos", "Ok");
+            return;
+        }
 
         #region LIMPIAR CAMPOS
         tbMarca.Text = "";

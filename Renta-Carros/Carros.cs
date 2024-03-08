@@ -37,27 +37,20 @@ namespace Renta_Carros
         public string Precio { get; set; }
     }
 
-    public class CarrosViewModel
+    public class CarrosViewModel : ObservableCollection<Carros>
     {
         public ObservableCollection<Carros> CarrosCollection { get; set; }
 
-        public CarrosViewModel() 
+        public CarrosViewModel()
         {
             db db = new db();
             List<Carros> documents = db.ObtenerCarros();
-            this.CarrosCollection = new ObservableCollection<Carros>();
+
+            CarrosCollection = new ObservableCollection<Carros>();
 
             foreach (var document in documents)
             {
-                //var imageSource = ImageSource.FromStream(() => new MemoryStream(document.Imagen.AsByteArray));
-                //var image = new Image
-                //{
-                //    Source = imageSource,
-                //    HeightRequest = 100,
-                //    WidthRequest = 100
-                //};
-
-                this.CarrosCollection.Add(new Carros() { Imagen= document.Imagen, Marca=document.Marca, Modelo= document.Modelo, Año= document.Año, Color= document.Color, Placas= document.Placas, Precio= document.Precio });
+                CarrosCollection.Add(new Carros() { Imagen= document.Imagen, Marca=document.Marca, Modelo= document.Modelo, Año= document.Año, Color= document.Color, Placas= document.Placas, Precio= document.Precio });
             }
         }
     }
