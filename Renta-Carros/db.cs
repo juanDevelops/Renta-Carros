@@ -12,7 +12,7 @@ namespace Renta_Carros
 {
     class db
     {
-        string MONGODB_URI = "mongodb://192.168.1.64:27017";
+        string MONGODB_URI = "mongodb://192.168.1.69:27017";
         public string errorMessage = "";
         //string connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
 

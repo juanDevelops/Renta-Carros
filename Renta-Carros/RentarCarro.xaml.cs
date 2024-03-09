@@ -5,13 +5,13 @@ public partial class RentarCarro : ContentPage
 	public RentarCarro()
 	{
 		InitializeComponent();
+        
 	}
 
-    public RentarCarro(string placas, string precio)
-    {
-        InitializeComponent();
 
-        tbPlacas.Text = placas;
+    public void RellenarDatos(string placas, string precio)
+    {
+        tbPlacas.Text = placas.ToString();
         tbPrecio.Text = precio.ToString();
     }
 
