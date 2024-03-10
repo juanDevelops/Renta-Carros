@@ -72,8 +72,14 @@ public partial class AgregarCarro : ContentPage
         tbPrecio.Text = precio;
     }
 
-    private void btnModificar_Clicked(object sender, EventArgs e)
+    private async void btnModificar_Clicked(object sender, EventArgs e)
     {
+        //IPAddress[] addresses = Dns.GetHostAddresses("localhost");
+        //foreach (IPAddress address in addresses)
+        //{
+        //    await DisplayAlert("Error", address.ToString(), "Ok");
+        //}
 
+        //await DisplayAlert("Error", db.GetLocalIPv4(), "Ok");
     }
 }
