@@ -14,44 +14,6 @@ namespace Renta_Carros
     {
         string MONGODB_URI = "mongodb://192.168.0.2:27017";
         public string errorMessage = "";
-        //string connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
-
-        //public void Conectar()
-        //{
-        //    if (connectionString == null)
-        //    {
-        //        Console.WriteLine("You must set your 'MONGODB_URI' environment variable.");
-        //        Environment.Exit(0);
-        //    }
-
-        //    var client = new MongoClient(connectionString);
-        //    var collection = client.GetDatabase("posyowe1").GetCollection<BsonDocument>("Ratas");
-        //    var filter = Builders<BsonDocument>.Filter.Eq("title", "Back to the Future");
-        //    var document = collection.Find(filter).First();
-        //    Console.WriteLine(document);
-        //}
-
-        public String AbrirConexion()
-        {
-            var client = new MongoClient(MONGODB_URI);
-            string bd = "";
-
-            try
-            {
-                List<String> nombreDB = client.ListDatabaseNames().ToList();
-                foreach (var db in nombreDB)
-                {
-                    bd = db.ToString();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-            return bd;
-        }
 
         public void InsertarCarro(string filePath, string marca, string modelo, string año, string color, string placas, string precio)
         {
@@ -79,7 +41,8 @@ namespace Renta_Carros
               Año = año,
               Color = color, 
               Placas = placas, 
-              Precio = precio 
+              Precio = precio,
+              EnRenta = false
             };
 
             carrosDB.InsertOne(Carro);
@@ -102,7 +65,7 @@ namespace Renta_Carros
             }
         }
 
-        public List<Carros> ObtenerCarros()
+        public List<Carros> ObtenerCarrosDisponibles()
         {
             var client = new MongoClient(MONGODB_URI);
             var database = client.GetDatabase("Carros");
@@ -110,7 +73,11 @@ namespace Renta_Carros
             try
             {
                 var collection = database.GetCollection<BsonDocument>("carros");
-                var bsonDocuments = collection.Find(new BsonDocument()).ToList();
+
+                // Filter query to find documents where "enRenta" is false
+                var filter = new BsonDocument("enRenta", false);
+
+                var bsonDocuments = collection.Find(filter).ToList();
 
                 // Transformar los BsonDocuments a objetos de la clase Carros
                 var carros = bsonDocuments.Select(bsonDoc => BsonSerializer.Deserialize<Carros>(bsonDoc)).ToList();
@@ -123,6 +90,7 @@ namespace Renta_Carros
                 return null;
             }
         }
+
 
         public bool ExisteCarroPorPlaca(string placa)
         {
@@ -147,6 +115,33 @@ namespace Renta_Carros
                 return false;
             }
         }
+
+        public bool RentarCarro(string placas)
+        {
+            var client = new MongoClient(MONGODB_URI);
+            var database = client.GetDatabase("Carros");
+
+            try
+            {
+                var collection = database.GetCollection<BsonDocument>("carros");
+
+                // Filter to find the car document with the specified license plate
+                var filter = new BsonDocument("placas", placas);
+
+                // Update operation to set "enRenta" to true
+                var update = Builders<BsonDocument>.Update.Set("enRenta", true);
+
+                var updateResult = collection.UpdateOne(filter, update);
+
+                return updateResult.IsModifiedCountAvailable && updateResult.ModifiedCount == 1;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.Message;
+                return false;
+            }
+        }
+
 
     }
 }

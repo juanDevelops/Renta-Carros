@@ -1,4 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
+﻿#if ANDROID
+using Renta_Carros.Platforms.Android;
+#endif
+#if IOS
+using Renta_Carros.Platforms.iOS;
+#endif
+
+using Microsoft.Extensions.Logging;
 
 namespace Renta_Carros
 {
@@ -9,6 +16,14 @@ namespace Renta_Carros
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureMauiHandlers(handlers => {
+#if ANDROID
+                    handlers.AddHandler<CustomViewCell, CustomViewCellHandler>();
+#endif
+#if IOS
+				handlers.AddHandler<CustomViewCell, CustomViewCellHandler>();
+#endif
+                })
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

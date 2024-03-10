@@ -6,7 +6,7 @@
 
     <Grid RowDefinitions="0.10*, 0.85*">
         <Grid BackgroundColor="LightBlue" HeightRequest="400"/>
-        <RoundRectangle Grid.Row="1" CornerRadius="30" Fill="White"/>
+        <RoundRectangle Grid.Row="1" CornerRadius="30,30,0,0" Fill="White"/>
 
         <Grid Grid.Row="1" RowSpacing="5" Margin="15,15,15,0">
             <Grid.RowDefinitions>

@@ -16,10 +16,6 @@ public partial class RentarCarro : ContentPage
         tbPrecio.Text = precio.ToString();
     }
 
-    private async void btnGuardar_Clicked(object sender, EventArgs e)
-    {
-        
-    }
 
     private void btnCerrar_Clicked(object sender, EventArgs e)
     {
@@ -97,6 +93,8 @@ public partial class RentarCarro : ContentPage
             await DisplayAlert("Error", "No existe ese vehiculo.", "Ok");
             return;
         }
+
+        db.RentarCarro(tbPlacas.Text);
     }
 
     private void btnCerrar_Clicked_1(object sender, EventArgs e)

@@ -28,14 +28,19 @@ namespace Renta_Carros
         public string Año { get; set; }
 
         [BsonElement("placas")]
-        public string Placas {  get; set; }
+        public string Placas { get; set; }
 
         [BsonElement("color")]
         public string Color { get; set; }
 
         [BsonElement("precio")]
         public string Precio { get; set; }
+
+        // New property to indicate rental status
+        [BsonElement("enRenta")]
+        public bool EnRenta { get; set; }
     }
+
 
     public class CarrosViewModel : ObservableCollection<Carros>
     {
@@ -44,7 +49,7 @@ namespace Renta_Carros
         public CarrosViewModel()
         {
             db db = new db();
-            List<Carros> documents = db.ObtenerCarros();
+            List<Carros> documents = db.ObtenerCarrosDisponibles();
 
             CarrosCollection = new ObservableCollection<Carros>();
 

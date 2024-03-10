@@ -29,27 +29,25 @@
         <ListView x:Name="ListaCarros" ItemsSource="{Binding CarrosCollection}" SeparatorVisibility="Default" HasUnevenRows="True" Margin="10" SeparatorColor="Black">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <Grid Margin="10, 5, 10, 5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                    <local:CustomViewCell SelectedBackgroundColor="LightBlue">
+                        <Grid Margin="10, 5, 10, 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                                <Image Grid.Column="0" Source="{Binding Imagen, Converter={StaticResource ByteArrayToImageConverter}}" HeightRequest="100" WidthRequest="200" />
+                            <Image Grid.Column="0" Source="{Binding Imagen, Converter={StaticResource ByteArrayToImageConverter}}" HeightRequest="100" WidthRequest="200" />
 
-                                <StackLayout Grid.Column="1" Margin="10,0,0,0">
-                                    <Label Text="{Binding Marca}" FontFamily="bold" TextColor="Black" LineBreakMode="WordWrap" MaxLines="2" />
-                                    <Label Text="{Binding Modelo}" FontFamily="medium" TextColor="Black" />
-                                    <Label Text="{Binding Año}" FontFamily="medium" TextColor="Gray" />
-                                    <Label Text="{Binding Color}" FontFamily="medium" TextColor="Gray" />
-                                    <Label Text="{Binding Placas}" FontFamily="medium" TextColor="Gray" />
-                                    <Label Text="{Binding Precio}" FontFamily="medium" TextColor="Gray" />
-                                </StackLayout>
-                            </Grid>
-                        </ViewCell.View>
-                    </ViewCell>
+                            <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                <Label Text="{Binding Marca}" FontFamily="bold" TextColor="Black" LineBreakMode="WordWrap" MaxLines="2" />
+                                <Label Text="{Binding Modelo}" FontFamily="medium" TextColor="Black" />
+                                <Label Text="{Binding Año}" FontFamily="medium" TextColor="Gray" />
+                                <Label Text="{Binding Color}" FontFamily="medium" TextColor="Gray" />
+                                <Label Text="{Binding Placas}" FontFamily="medium" TextColor="Gray" />
+                                <Label Text="{Binding Precio}" FontFamily="medium" TextColor="Gray" />
+                            </StackLayout>
+                        </Grid>
+                    </local:CustomViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
