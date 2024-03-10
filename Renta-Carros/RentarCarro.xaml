@@ -4,7 +4,7 @@
              x:Class="Renta_Carros.RentarCarro"
              Title="RentarCarro">
 
-    <Grid RowDefinitions="0.15*, 0.85*">
+    <Grid RowDefinitions="0.10*, 0.85*">
         <Grid BackgroundColor="LightBlue" HeightRequest="400"/>
         <RoundRectangle Grid.Row="1" CornerRadius="30" Fill="White"/>
 
@@ -22,23 +22,16 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackLayout Orientation="Vertical" Grid.Row="0">
-                <Label Text="Bienvenido" FontFamily="bold" FontSize="Title" TextColor="Black"/>
-                <Label Text="Selecciona un auto." FontFamily="medium" TextColor="Gray"/>
+            <StackLayout Orientation="Vertical" Grid.Row="0" Padding="20">
+                <!--<Label Text="Bienvenido" HorizontalTextAlignment="Center" FontFamily="bold" FontSize="Title" TextColor="Black"/>-->
+                <Label Text="Rellena los datos para rentar un auto." HorizontalTextAlignment="Center" FontFamily="medium" TextColor="Gray"/>
             </StackLayout>
 
             <!--#region ENTRY CLIENTE -->
             <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
-                            <Image Margin="7">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                        <Entry x:Name="tbCliente" FontFamily="medium" Placeholder="Cliente" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbCliente" HorizontalTextAlignment="Center" FontFamily="medium" Placeholder="Cliente" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -48,14 +41,7 @@
             <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
-                            <Image Margin="7">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                        <Entry x:Name="tbTelefono" FontFamily="medium" Placeholder="Telefono" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbTelefono" HorizontalTextAlignment="Center" FontFamily="medium" Placeholder="Telefono" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -65,14 +51,7 @@
             <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
-                            <Image Margin="7">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                        <Entry x:Name="tbPlacas" IsEnabled="False" FontFamily="medium" Placeholder="Placas" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbPlacas" HorizontalTextAlignment="Center" IsEnabled="False" FontFamily="medium" Placeholder="Placas" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -82,46 +61,39 @@
             <StackLayout Grid.Row="4" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Frame BackgroundColor="#fcc" BorderColor="#fcc" WidthRequest="50" HeightRequest="50" CornerRadius="30" Padding="0" Margin="1">
-                            <Image Margin="7">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fas" Glyph="&#xf007;"/>
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                        <Entry x:Name="tbPrecio" IsEnabled="False" FontFamily="medium" Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbPrecio" HorizontalTextAlignment="Center" IsEnabled="False" FontFamily="medium" Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
             <!--#endregion-->
 
             <!--#region DATEPICKER -->
-            <StackLayout Orientation="Horizontal" Grid.Row="5" Margin="5,10,0,0" HorizontalOptions="Fill">
-                <Label Text="Fecha de salida" TextColor="#b4b5b7" FontFamily="bold" VerticalOptions="CenterAndExpand"/>
+            <StackLayout Orientation="Vertical" Grid.Row="5" Margin="5,10,0,0" HorizontalOptions="Fill">
+                <Label Text="Fecha de salida" HorizontalTextAlignment="Center" TextColor="#b4b5b7" FontFamily="bold" VerticalOptions="CenterAndExpand"/>
                 <Frame CornerRadius="30" BackgroundColor="#f1f0f0" BorderColor="#f1f0f0" HeightRequest="50" HorizontalOptions="FillAndExpand" Padding="5" Margin="10,0,0,0">
-                    <DatePicker x:Name="dpFechaSalida" Margin="10,0,0,0" HorizontalOptions="CenterAndExpand">
+                    <DatePicker x:Name="dpFechaSalida" Margin="10,0,0,0" HorizontalOptions="CenterAndExpand" TextColor="#A3A3A3">
                     </DatePicker>
                 </Frame>
             </StackLayout>
             <!--#endregion-->
 
             <!--#region DATEPICKER -->
-            <StackLayout Orientation="Horizontal" Grid.Row="6" Margin="5,10,0,0" HorizontalOptions="Fill">
-                <Label Text="Fecha de entrega" TextColor="#b4b5b7" FontFamily="bold" VerticalOptions="CenterAndExpand"/>
+            <StackLayout Orientation="Vertical" Grid.Row="6" Margin="5,10,0,0" HorizontalOptions="Fill">
+                <Label Text="Fecha de entrega" HorizontalTextAlignment="Center" TextColor="#b4b5b7" FontFamily="bold" VerticalOptions="CenterAndExpand"/>
                 <Frame CornerRadius="30" BackgroundColor="#f1f0f0" BorderColor="#f1f0f0" HeightRequest="50" HorizontalOptions="FillAndExpand" Padding="5" Margin="10,0,0,0">
-                    <DatePicker x:Name="dpFechaEntrega" Margin="10,0,0,0" HorizontalOptions="CenterAndExpand" DateSelected="dpFechaEntrega_DateSelected">
+                    <DatePicker x:Name="dpFechaEntrega" Margin="10,0,0,0" HorizontalOptions="CenterAndExpand" DateSelected="dpFechaEntrega_DateSelected" TextColor="#A3A3A3">
                     </DatePicker>
                 </Frame>
             </StackLayout>
             <!--#endregion-->
 
             <StackLayout Orientation="Vertical" Grid.Row="7">
-                <Label x:Name="lblPrecio" Text="Total a pagar: " FontFamily="bold" FontSize="Title" TextColor="Black"/>
+                <Label x:Name="lblPrecio" Text="Total a pagar: " FontFamily="bold" FontSize="Title" TextColor="DarkGray"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" Margin="10" Grid.Row="8">
-                <Button x:Name="btnGuardar" Clicked="btnGuardar_Clicked_1" Text="Guardar" HeightRequest="50" TextColor="White" Background="Blue" CornerRadius="30" HorizontalOptions="FillAndExpand" Margin="0,0,5,0"/>
-                <Button x:Name="btnCerrar" Clicked="btnCerrar_Clicked_1" Text="Cancelar" HeightRequest="50" TextColor="White" Background="Red" CornerRadius="30" HorizontalOptions="FillAndExpand" Margin="5,0,0,0"/>
+                <Button x:Name="btnGuardar" Clicked="btnGuardar_Clicked_1" Text="Guardar" HeightRequest="50" TextColor="White" Background="LightBlue" CornerRadius="30" HorizontalOptions="FillAndExpand" Margin="0,0,5,0"/>
+                <Button x:Name="btnCerrar" Clicked="btnCerrar_Clicked_1" Text="Cancelar" HeightRequest="50" TextColor="White" Background="LightGray" CornerRadius="30" HorizontalOptions="FillAndExpand" Margin="5,0,0,0"/>
             </StackLayout>
 
             

@@ -5,12 +5,12 @@
              Title="AgregarCarro">
     
     <Grid RowDefinitions="0.10*, 0.85*">
-        <Grid BackgroundColor="Gray" HeightRequest="400"/>
+        <Grid BackgroundColor="LightBlue" HeightRequest="400"/>
         <RoundRectangle Grid.Row="1" CornerRadius="30" Fill="White"/>
 
         <Grid Grid.Row="1" RowSpacing="3" Margin="15,5,15,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="60"/>
                 <RowDefinition Height="180"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
@@ -20,15 +20,15 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackLayout Orientation="Vertical" Grid.Row="0">
-                <Label Text="Bienvenido" HorizontalTextAlignment="Center" FontFamily="bold" FontSize="Title" TextColor="Black"/>
+            <StackLayout Orientation="Vertical" Grid.Row="0" Padding="20">
+                <!--<Label Text="Bienvenido" HorizontalTextAlignment="Center" FontFamily="bold" FontSize="Title" TextColor="Black"/>-->
                 <Label Text="Rellena los datos para registrar un nuevo auto." HorizontalTextAlignment="Center" FontFamily="medium" TextColor="Gray"/>
             </StackLayout>
 
             <Grid Grid.Row="1">
-                <VerticalStackLayout>
+                <VerticalStackLayout Spacing="5">
                     <Image x:Name="imgCarro" Aspect="AspectFit" WidthRequest="150" HeightRequest="120"/>
-                    <Button x:Name="btnCargarFoto" Text="Cargar foto" Clicked="btnCargarFoto_Clicked" HeightRequest="50" TextColor="White" Background="#fcc" CornerRadius="30" HorizontalOptions="Center" WidthRequest="200"/>
+                    <Button x:Name="btnCargarFoto" Text="Cargar foto" Clicked="btnCargarFoto_Clicked" HeightRequest="50" TextColor="White" Background="LightGray" CornerRadius="30" HorizontalOptions="Center" WidthRequest="200"/>
                 </VerticalStackLayout>
             </Grid>
 
@@ -99,8 +99,9 @@
 
             <!--#region BOTON GUARDAR -->
             <Grid Grid.Row="8">
-                <StackLayout Orientation="Horizontal">
-                    <Button x:Name="btnAgregar" Text="Agregar" Clicked="btnAgregar_Clicked" HeightRequest="50" TextColor="White" Background="#fcc" CornerRadius="30" HorizontalOptions="FillAndExpand" />
+                <StackLayout Orientation="Horizontal" Spacing="5" Margin="0">
+                    <Button x:Name="btnAgregar" Text="Agregar" Clicked="btnAgregar_Clicked" HeightRequest="50" TextColor="White" Background="LightBlue" CornerRadius="30" HorizontalOptions="FillAndExpand" />
+                    <Button x:Name="btnModificar" Text="Modificar" Clicked="btnModificar_Clicked" HeightRequest="50" TextColor="White" Background="LightGray" CornerRadius="30" HorizontalOptions="FillAndExpand" />
                 </StackLayout>
             </Grid>
             <!--#endregion-->

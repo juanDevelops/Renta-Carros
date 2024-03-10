@@ -71,4 +71,9 @@ public partial class AgregarCarro : ContentPage
         tbPlacas.Text = placas;
         tbPrecio.Text = precio;
     }
+
+    private void btnModificar_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

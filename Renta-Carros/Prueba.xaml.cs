@@ -22,6 +22,7 @@ public partial class Prueba : ContentPage
         if (carroSeleccionado != null)
         {
             rentarCarro.RellenarDatos(carroSeleccionado.Placas.ToString(), carroSeleccionado.Precio.ToString());
+            tabbedPage.CurrentPage = rentarCarro;
             //var mensaje = $"Marca: {carroSeleccionado.Marca}\nModelo: {carroSeleccionado.Modelo}\nAño: {carroSeleccionado.Año}";
             //await DisplayAlert("Información del vehículo", mensaje, "Ok");
         }
@@ -47,6 +48,7 @@ public partial class Prueba : ContentPage
             modificarCarro.RellenarDatos(carroSeleccionado.Marca.ToString(), carroSeleccionado.Modelo.ToString(), carroSeleccionado.Año.ToString(), carroSeleccionado.Color.ToString(), carroSeleccionado.Placas.ToString(), carroSeleccionado.Precio.ToString(), sourceImagen);
             //var mensaje = $"Marca: {carroSeleccionado.Marca}\nModelo: {carroSeleccionado.Modelo}\nAño: {carroSeleccionado.Año}";
             //await DisplayAlert("Información del vehículo", mensaje, "Ok");
+            tabbedPage.CurrentPage = modificarCarro;
         }
         else
         {
