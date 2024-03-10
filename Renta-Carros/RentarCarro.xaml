@@ -117,7 +117,6 @@
 
             <StackLayout Orientation="Vertical" Grid.Row="7">
                 <Label x:Name="lblPrecio" Text="Total a pagar: " FontFamily="bold" FontSize="Title" TextColor="Black"/>
-                <Label Text="11" FontFamily="bold" FontSize="Title"  TextColor="Gray"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" Margin="10" Grid.Row="8">

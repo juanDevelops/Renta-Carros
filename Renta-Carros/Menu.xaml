@@ -8,9 +8,11 @@ android:TabbedPage.ToolbarPlacement="Bottom" BarBackgroundColor="Black" BarTextC
              Title="Menu"
             x:Name="MenuTabbedPage">
 
-    <local:Inicio Title="Inicio"></local:Inicio>
-    <local:AgregarCarro Title="Agregar"></local:AgregarCarro>
+    <local:Prueba Title="Inicio"></local:Prueba>
+    <!--<local:Inicio Title="Inicio"></local:Inicio>-->
     <local:RentarCarro Title="Rentar"></local:RentarCarro>
-    <local:Prueba Title="Prueba"></local:Prueba>
+    <local:AgregarCarro Title="Agregar"></local:AgregarCarro>
+    
+    
 
 </TabbedPage>

@@ -60,4 +60,15 @@ public partial class AgregarCarro : ContentPage
 			await DisplayAlert("Error", $"Error al cargar la imagen {ex.Message}", "Ok");
 		}
     }
+
+    public void RellenarDatos(string marca, string modelo, string año, string color, string placas, string precio, ImageSource source)
+    {
+        imgCarro.Source = source;
+        tbMarca.Text = marca;
+        tbModelo.Text = modelo;
+        tbAño.Text = año;
+        tbColor.Text = color;
+        tbPlacas.Text = placas;
+        tbPrecio.Text = precio;
+    }
 }

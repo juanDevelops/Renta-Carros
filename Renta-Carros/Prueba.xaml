@@ -18,10 +18,14 @@
     </ContentPage.BindingContext>
 
     <StackLayout>
-        <StackLayout Orientation="Horizontal" Margin="10">
-            <Button x:Name="btnActualizar" Clicked="btnActualizar_Clicked" Text="Actualizar Lista" HeightRequest="50" TextColor="White" Background="Gray" CornerRadius="30" HorizontalOptions="FillAndExpand" />
-            <Button x:Name="btnRentar" Clicked="btnRentar_Clicked" Text="Rentar Carro" HeightRequest="50" TextColor="White" Background="Gray" CornerRadius="30" HorizontalOptions="FillAndExpand" />
-        </StackLayout>
+        <VerticalStackLayout Margin="10">
+            <Button x:Name="btnActualizar" Clicked="btnActualizar_Clicked" Text="Actualizar lista" HeightRequest="50" TextColor="White" Background="LightBlue" CornerRadius="30" HorizontalOptions="FillAndExpand" />
+            <StackLayout Orientation="Horizontal" Margin="10" Spacing="5">
+                <Button x:Name="btnModificar" Clicked="btnModificar_Clicked" Text="Modificar" HeightRequest="50" TextColor="White" Background="LightGray" CornerRadius="30" HorizontalOptions="FillAndExpand" />
+                <Button x:Name="btnRentar" Clicked="btnRentar_Clicked" Text="Rentar" HeightRequest="50" TextColor="White" Background="LightGray" CornerRadius="30" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </VerticalStackLayout>
+        
         <ListView x:Name="ListaCarros" ItemsSource="{Binding CarrosCollection}" SeparatorVisibility="Default" HasUnevenRows="True" Margin="10" SeparatorColor="Black">
             <ListView.ItemTemplate>
                 <DataTemplate>
