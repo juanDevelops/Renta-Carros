@@ -72,7 +72,7 @@
                                 </Image.Source>
                             </Image>
                         </Frame>
-                        <Entry x:Name="tbPlacas" FontFamily="medium" Placeholder="Placas" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbPlacas" IsEnabled="False" FontFamily="medium" Placeholder="Placas" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -89,7 +89,7 @@
                                 </Image.Source>
                             </Image>
                         </Frame>
-                        <Entry x:Name="tbPrecio" FontFamily="medium" Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbPrecio" IsEnabled="False" FontFamily="medium" Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -109,16 +109,23 @@
             <StackLayout Orientation="Horizontal" Grid.Row="6" Margin="5,10,0,0" HorizontalOptions="Fill">
                 <Label Text="Fecha de entrega" TextColor="#b4b5b7" FontFamily="bold" VerticalOptions="CenterAndExpand"/>
                 <Frame CornerRadius="30" BackgroundColor="#f1f0f0" BorderColor="#f1f0f0" HeightRequest="50" HorizontalOptions="FillAndExpand" Padding="5" Margin="10,0,0,0">
-                    <DatePicker x:Name="dpFechaEntrega" Margin="10,0,0,0" HorizontalOptions="CenterAndExpand">
+                    <DatePicker x:Name="dpFechaEntrega" Margin="10,0,0,0" HorizontalOptions="CenterAndExpand" DateSelected="dpFechaEntrega_DateSelected">
                     </DatePicker>
                 </Frame>
             </StackLayout>
             <!--#endregion-->
 
-            <StackLayout Orientation="Horizontal" Margin="10" Grid.Row="7">
-                <Button x:Name="btnGuardar" Clicked="btnGuardar_Clicked" Text="Guardar" HeightRequest="50" TextColor="White" Background="Blue" CornerRadius="30" HorizontalOptions="FillAndExpand" Margin="0,0,5,0"/>
-                <Button x:Name="btnCerrar" Clicked="btnCerrar_Clicked" Text="Cancelar" HeightRequest="50" TextColor="White" Background="Red" CornerRadius="30" HorizontalOptions="FillAndExpand" Margin="5,0,0,0"/>
+            <StackLayout Orientation="Vertical" Grid.Row="7">
+                <Label x:Name="lblPrecio" Text="Total a pagar: " FontFamily="bold" FontSize="Title" TextColor="Black"/>
+                <Label Text="11" FontFamily="bold" FontSize="Title"  TextColor="Gray"/>
             </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="10" Grid.Row="8">
+                <Button x:Name="btnGuardar" Clicked="btnGuardar_Clicked_1" Text="Guardar" HeightRequest="50" TextColor="White" Background="Blue" CornerRadius="30" HorizontalOptions="FillAndExpand" Margin="0,0,5,0"/>
+                <Button x:Name="btnCerrar" Clicked="btnCerrar_Clicked_1" Text="Cancelar" HeightRequest="50" TextColor="White" Background="Red" CornerRadius="30" HorizontalOptions="FillAndExpand" Margin="5,0,0,0"/>
+            </StackLayout>
+
+            
 
         </Grid>
 

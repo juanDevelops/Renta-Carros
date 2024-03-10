@@ -12,7 +12,7 @@ namespace Renta_Carros
 {
     class db
     {
-        string MONGODB_URI = "mongodb://192.168.1.69:27017";
+        string MONGODB_URI = "mongodb://192.168.0.2:27017";
         public string errorMessage = "";
         //string connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
 
@@ -121,6 +121,30 @@ namespace Renta_Carros
             {
                 errorMessage = ex.Message;
                 return null;
+            }
+        }
+
+        public bool ExisteCarroPorPlaca(string placa)
+        {
+            var client = new MongoClient(MONGODB_URI);
+            var database = client.GetDatabase("Carros");
+
+            try
+            {
+                var collection = database.GetCollection<Carros>("carros");
+
+                // Construye un filtro para buscar documentos con la placa específica
+                var filter = Builders<Carros>.Filter.Eq(carro => carro.Placas, placa);
+
+                // Realiza la búsqueda utilizando el filtro y verifica si hay al menos un documento encontrado
+                var carroEncontrado = collection.Find(filter).Any();
+
+                return carroEncontrado;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.Message;
+                return false;
             }
         }
 
