@@ -35,10 +35,18 @@ namespace Renta_Carros
                 !string.IsNullOrEmpty(tbPrecio.Text) &&
                 filePath != "")
             {
-                // Llamar al método InsertarCarro si todos los parámetros son válidos
-                db.InsertarCarro(filePath, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text);
-                prueba.ActualizarLista();
-                await DisplayAlert("Aviso", "Nuevo auto registrado exitosamente.", "Ok");
+
+                if (db.ExisteCarroPorPlaca(tbPlacas.Text))
+                {
+                    await DisplayAlert("Aviso", "Placas ya registradas con otro auto.", "Ok");
+                }
+                else
+                {
+                    // Llamar al método InsertarCarro si todos los parámetros son válidos
+                    db.InsertarCarro(filePath, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text);
+                    prueba.ActualizarLista();
+                    await DisplayAlert("Aviso", "Nuevo auto registrado exitosamente.", "Ok");
+                }
             }
             else
             {
@@ -99,14 +107,22 @@ namespace Renta_Carros
                 imagenBytes = File.ReadAllBytes(filePath);
             }
 
-            if (db.ModificarCarroPorPlaca(imagenBytes, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text))
+            if (db.ExisteCarroPorPlaca(tbPlacas.Text))
             {
-                await DisplayAlert("Error", $"Auto ha sido modificado.", "Ok");
-                Prueba prueba = tabbedPage.Children[1] as Prueba;
-                prueba.ActualizarLista();
-                tabbedPage.CurrentPage = prueba;
+                if (db.ModificarCarroPorPlaca(imagenBytes, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text))
+                {
+                    await DisplayAlert("Error", $"Auto ha sido modificado.", "Ok");
+                    Prueba prueba = tabbedPage.Children[1] as Prueba;
+                    prueba.ActualizarLista();
+                    tabbedPage.CurrentPage = prueba;
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Error al modificar auto", "Ok");
+                }
             }
-        
+
+
         }
     }
 }

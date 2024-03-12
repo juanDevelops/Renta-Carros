@@ -64,7 +64,7 @@ public partial class Prueba : ContentPage
             Menu menu = tabbedPageMenu as Menu;
 
 
-            await DisplayAlert("Error", menu.ipv4, "Ok");
+            //await DisplayAlert("Error", menu.ipv4, "Ok");
             await DisplayAlert("Error", "No se ha seleccionado ningún vehículo.", "Ok");
         }
     }

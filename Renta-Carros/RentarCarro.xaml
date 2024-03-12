@@ -41,7 +41,7 @@
             <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Entry x:Name="tbTelefono" HorizontalTextAlignment="Center" FontFamily="medium" Placeholder="Telefono" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbTelefono" Keyboard="Numeric" HorizontalTextAlignment="Center" FontFamily="medium" Placeholder="Telefono" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>

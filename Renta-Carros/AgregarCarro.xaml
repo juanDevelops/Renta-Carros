@@ -58,7 +58,7 @@
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
 
-                        <Entry x:Name="tbAño" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Año" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbAño" FontFamily="medium" Keyboard="Numeric" HorizontalTextAlignment="Center" Placeholder="Año" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -91,7 +91,7 @@
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
 
-                        <Entry x:Name="tbPrecio" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbPrecio" FontFamily="medium" Keyboard="Numeric" HorizontalTextAlignment="Center" Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
