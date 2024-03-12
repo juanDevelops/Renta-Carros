@@ -12,7 +12,7 @@ namespace Renta_Carros
 {
     class dbMethods
     {
-        string MONGODB_URI = "mongodb://192.168.1.69:27017";
+        string MONGODB_URI = "mongodb://192.168.1.74:27017";
         public string errorMessage = "";
 
         public void InsertarCarro(string filePath, string marca, string modelo, string año, string color, string placas, string precio)

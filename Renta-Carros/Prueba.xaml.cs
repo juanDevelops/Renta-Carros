@@ -1,3 +1,4 @@
+using Microsoft.Maui.Controls;
 using MongoDB.Bson;
 
 namespace Renta_Carros;
@@ -56,8 +57,12 @@ public partial class Prueba : ContentPage
         }
     }
 
-    private void btnActualizar_Clicked(object sender, EventArgs e)
+    private async void btnActualizar_Clicked(object sender, EventArgs e)
     {
-        CarrosViewModel carros = new CarrosViewModel();
+        //await Navigation.PopAsync();
+        //await Navigation.PushAsync(new Prueba());
+        BindingContext = null; // Establece el BindingContext en null
+        BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
+        ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;
     }
 }

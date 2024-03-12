@@ -24,6 +24,8 @@ public partial class AgregarCarro : ContentPage
         {
             // Llamar al método InsertarCarro si todos los parámetros son válidos
             db.InsertarCarro(filePath, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text);
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new Prueba());
             await DisplayAlert("Aviso", "Nuevo auto registrado exitosamente.", "Ok");
         }
         else
