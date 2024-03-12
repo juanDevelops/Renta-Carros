@@ -23,7 +23,7 @@ public partial class Prueba : ContentPage
     private async void btnRentar_Clicked(object sender, EventArgs e)
     {
         var tabbedPage = Application.Current.MainPage as Menu;
-        RentarCarro rentarCarro = tabbedPage.Children[1] as RentarCarro;
+        RentarCarro rentarCarro = tabbedPage.Children[2] as RentarCarro;
 
         var carroSeleccionado = (Carros)ListaCarros.SelectedItem;
 
@@ -43,7 +43,7 @@ public partial class Prueba : ContentPage
     private async void btnModificar_Clicked(object sender, EventArgs e)
     {
         var tabbedPage = Application.Current.MainPage as Menu;
-        AgregarCarro modificarCarro = tabbedPage.Children[2] as AgregarCarro;
+        AgregarCarro modificarCarro = tabbedPage.Children[3] as AgregarCarro;
 
         var carroSeleccionado = (Carros)ListaCarros.SelectedItem;
 
