@@ -8,7 +8,7 @@ public partial class RentarCarro : ContentPage
         
 	}
 
-    db db = new db();
+    dbMethods db = new dbMethods();
 
     public void RellenarDatos(string placas, string precio)
     {

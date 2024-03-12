@@ -10,7 +10,7 @@ using MongoDB.Bson.Serialization.Serializers;
 
 namespace Renta_Carros
 {
-    class db
+    class dbMethods
     {
         string MONGODB_URI = "mongodb://192.168.1.69:27017";
         public string errorMessage = "";

@@ -8,7 +8,7 @@ public partial class AgregarCarro : ContentPage
 		InitializeComponent();
 	}
 
-    db db = new db();
+    dbMethods db = new dbMethods();
 	String filePath = "";
 
     private async void btnAgregar_Clicked(object sender, EventArgs e)
@@ -72,7 +72,7 @@ public partial class AgregarCarro : ContentPage
         tbPrecio.Text = precio;
     }
 
-    private async void btnModificar_Clicked(object sender, EventArgs e)
+    private void btnModificar_Clicked(object sender, EventArgs e)
     {
         //IPAddress[] addresses = Dns.GetHostAddresses("localhost");
         //foreach (IPAddress address in addresses)

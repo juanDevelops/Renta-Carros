@@ -48,7 +48,7 @@ namespace Renta_Carros
 
         public CarrosViewModel()
         {
-            db db = new db();
+            dbMethods db = new dbMethods();
             List<Carros> documents = db.ObtenerCarrosDisponibles();
 
             CarrosCollection = new ObservableCollection<Carros>();

@@ -13,7 +13,7 @@ public partial class Inicio : ContentPage
 
     }
 
-    db db = new db();
+    dbMethods db = new dbMethods();
 
     private async void btnPrueba_Clicked(object sender, EventArgs e)
     {
