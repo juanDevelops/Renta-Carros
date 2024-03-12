@@ -3,109 +3,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Renta_Carros.AgregarCarro"
              Title="AgregarCarro">
-    
-    <Grid RowDefinitions="0.10*, 0.85*">
-        <Grid BackgroundColor="LightBlue" HeightRequest="400"/>
-        <RoundRectangle Grid.Row="1" CornerRadius="30,30,0,0" Fill="White"/>
 
-        <Grid Grid.Row="1" RowSpacing="3" Margin="15,5,15,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="180"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+    <Grid Grid.Row="1" RowSpacing="3" Margin="15,5,15,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <StackLayout Orientation="Vertical" Grid.Row="0" Padding="20">
-                <!--<Label Text="Bienvenido" HorizontalTextAlignment="Center" FontFamily="bold" FontSize="Title" TextColor="Black"/>-->
-                <Label Text="Rellena los datos para registrar un nuevo auto." HorizontalTextAlignment="Center" FontFamily="medium" TextColor="Gray"/>
-            </StackLayout>
-
-            <Grid Grid.Row="1">
-                <VerticalStackLayout Spacing="5">
-                    <Image x:Name="imgCarro" Aspect="AspectFit" WidthRequest="150" HeightRequest="120"/>
-                    <Button x:Name="btnCargarFoto" Text="Cargar foto" Clicked="btnCargarFoto_Clicked" HeightRequest="50" TextColor="White" Background="LightGray" CornerRadius="30" HorizontalOptions="Center" WidthRequest="200"/>
-                </VerticalStackLayout>
-            </Grid>
-
-                <!--#region ENTRY MARCA -->
-            <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Fill">
-                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
-                    <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Entry x:Name="tbMarca" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Marca" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-            <!--#endregion-->
-
-            <!--#region ENTRY MODELO -->
-            <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="Fill">
-                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
-                    <StackLayout Orientation="Horizontal" HeightRequest="50">
-
-                        <Entry x:Name="tbModelo" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Modelo" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-            <!--#endregion-->
-
-            <!--#region ENTRY AÑO -->
-            <StackLayout Grid.Row="4" Orientation="Vertical" HorizontalOptions="Fill">
-                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
-                    <StackLayout Orientation="Horizontal" HeightRequest="50">
-
-                        <Entry x:Name="tbAño" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Año" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-            <!--#endregion-->
-
-            <!--#region ENTRY COLOR -->
-            <StackLayout Grid.Row="5" Orientation="Vertical" HorizontalOptions="Fill">
-                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
-                    <StackLayout Orientation="Horizontal" HeightRequest="50">
-
-                        <Entry x:Name="tbColor" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Color" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-            <!--#endregion-->
-
-            <!--#region ENTRY PLACAS -->
-            <StackLayout Grid.Row="6" Orientation="Vertical" HorizontalOptions="Fill">
-                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
-                    <StackLayout Orientation="Horizontal" HeightRequest="50">
-
-                        <Entry x:Name="tbPlacas" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Placas" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-            <!--#endregion-->
-
-            <!--#region ENTRY PRECIO -->
-            <StackLayout Grid.Row="7" Orientation="Vertical" HorizontalOptions="Fill">
-                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
-                    <StackLayout Orientation="Horizontal" HeightRequest="50">
-
-                        <Entry x:Name="tbPrecio" FontFamily="medium" HorizontalTextAlignment="Center" Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-            <!--#endregion-->
-
-            <!--#region BOTON GUARDAR -->
-            <Grid Grid.Row="8">
-                <StackLayout Orientation="Horizontal" Spacing="5" Margin="0">
-                    <Button x:Name="btnAgregar" Text="Agregar" Clicked="btnAgregar_Clicked" HeightRequest="50" TextColor="White" Background="LightBlue" CornerRadius="30" HorizontalOptions="FillAndExpand" />
-                    <Button x:Name="btnModificar" Text="Modificar" Clicked="btnModificar_Clicked" HeightRequest="50" TextColor="White" Background="LightGray" CornerRadius="30" HorizontalOptions="FillAndExpand" />
-                </StackLayout>
-            </Grid>
-            <!--#endregion-->
-
+        <Grid Grid.Row="1">
+            <VerticalStackLayout Spacing="5">
+                <Image x:Name="imgCarro" Aspect="AspectFit" WidthRequest="150" HeightRequest="120"/>
+                <Button x:Name="btnCargarFoto" Text="Cargar foto" Clicked="btnCargarFoto_Clicked" HeightRequest="50" TextColor="White" Background="DarkGray"  HorizontalOptions="Center" WidthRequest="200"/>
+            </VerticalStackLayout>
         </Grid>
+
+        <!--#region ENTRY MARCA -->
+        <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Fill">
+            <Entry x:Name="tbMarca" FontFamily="medium" Placeholder="Marca" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+        </StackLayout>
+        <!--#endregion-->
+
+        <!--#region ENTRY MODELO -->
+        <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="Fill">
+            <Entry x:Name="tbModelo" FontFamily="medium" Placeholder="Modelo" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+        </StackLayout>
+        <!--#endregion-->
+
+        <!--#region ENTRY AÑO -->
+        <StackLayout Grid.Row="4" Orientation="Vertical" HorizontalOptions="Fill">
+            <Entry x:Name="tbAño" FontFamily="medium" Placeholder="Año" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+        </StackLayout>
+        <!--#endregion-->
+
+        <!--#region ENTRY COLOR -->
+        <StackLayout Grid.Row="5" Orientation="Vertical" HorizontalOptions="Fill">
+            <Entry x:Name="tbColor" FontFamily="medium" Placeholder="Color" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+        </StackLayout>
+        <!--#endregion-->
+
+        <!--#region ENTRY PLACAS -->
+        <StackLayout Grid.Row="6" Orientation="Vertical" HorizontalOptions="Fill">
+            <Entry x:Name="tbPlacas" FontFamily="medium" Placeholder="Placas" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+        </StackLayout>
+        <!--#endregion-->
+
+        <!--#region ENTRY PRECIO -->
+        <StackLayout Grid.Row="7" Orientation="Vertical" HorizontalOptions="Fill">
+            <Entry x:Name="tbPrecio" FontFamily="medium" Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+        </StackLayout>
+        <!--#endregion-->
+
+        <!--#region BOTON GUARDAR -->
+        <Grid Grid.Row="8">
+            <StackLayout Orientation="Vertical" Spacing="5" Margin="0">
+                <Button x:Name="btnAgregar" Text="Guardar" Clicked="btnAgregar_Clicked" HeightRequest="50" TextColor="White" Background="DarkGray"  HorizontalOptions="FillAndExpand" />
+                <Button x:Name="btnModificar" Text="Modificar" Clicked="btnModificar_Clicked" HeightRequest="50" TextColor="White" Background="DarkGray"  HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </Grid>
+        <!--#endregion-->
+
     </Grid>
 </ContentPage>

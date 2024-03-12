@@ -18,7 +18,7 @@ public partial class Prueba : ContentPage
     private async void btnRentar_Clicked(object sender, EventArgs e)
     {
         var tabbedPage = Application.Current.MainPage as Menu;
-        RentarCarro rentarCarro = tabbedPage.Children[1] as RentarCarro;
+        RentarCarro rentarCarro = tabbedPage.Children[2] as RentarCarro;
 
         var carroSeleccionado = (Carros)ListaCarros.SelectedItem;
 
@@ -26,8 +26,6 @@ public partial class Prueba : ContentPage
         {
             rentarCarro.RellenarDatos(carroSeleccionado.Placas.ToString(), carroSeleccionado.Precio.ToString());
             tabbedPage.CurrentPage = rentarCarro;
-            //var mensaje = $"Marca: {carroSeleccionado.Marca}\nModelo: {carroSeleccionado.Modelo}\nAño: {carroSeleccionado.Año}";
-            //await DisplayAlert("Información del vehículo", mensaje, "Ok");
         }
         else
         {
@@ -38,7 +36,7 @@ public partial class Prueba : ContentPage
     private async void btnModificar_Clicked(object sender, EventArgs e)
     {
         var tabbedPage = Application.Current.MainPage as Menu;
-        AgregarCarro modificarCarro = tabbedPage.Children[2] as AgregarCarro;
+        AgregarCarro modificarCarro = tabbedPage.Children[0] as AgregarCarro;
 
         var carroSeleccionado = (Carros)ListaCarros.SelectedItem;
 
@@ -49,8 +47,7 @@ public partial class Prueba : ContentPage
             byte[] imageBytes = imageData.Bytes;
             ImageSource sourceImagen = ImageSource.FromStream(() => new MemoryStream(imageBytes));
             modificarCarro.RellenarDatos(carroSeleccionado.Marca.ToString(), carroSeleccionado.Modelo.ToString(), carroSeleccionado.Año.ToString(), carroSeleccionado.Color.ToString(), carroSeleccionado.Placas.ToString(), carroSeleccionado.Precio.ToString(), sourceImagen, imageBytes);
-            //var mensaje = $"Marca: {carroSeleccionado.Marca}\nModelo: {carroSeleccionado.Modelo}\nAño: {carroSeleccionado.Año}";
-            //await DisplayAlert("Información del vehículo", mensaje, "Ok");
+            
             tabbedPage.CurrentPage = modificarCarro;
         }
         else
@@ -61,17 +58,15 @@ public partial class Prueba : ContentPage
 
     public void btnActualizar_Clicked(object sender, EventArgs e)
     {
-        //await Navigation.PopAsync();
-        //await Navigation.PushAsync(new Prueba());
-        BindingContext = null; // Establece el BindingContext en null
-        BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
+        BindingContext = null; 
+        BindingContext = new CarrosViewModel();
         ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;
     }
 
     public void ActualizarLista()
     {
-        BindingContext = null; // Establece el BindingContext en null
-        BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
+        BindingContext = null;
+        BindingContext = new CarrosViewModel();
         ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;
     }
 }

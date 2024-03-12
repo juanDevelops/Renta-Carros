@@ -94,13 +94,7 @@ namespace Renta_Carros
 
             if (db.ModificarCarroPorPlaca(imagenBytes, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text))
             {
-                await DisplayAlert("Error", $"Auto ha sido modificado.", "Ok");
-                //await DisplayActionSheet("Elige", "Nose", "Nose 2");
-                await DisplayPromptAsync("Titulo", "asdf");
-                var tabbedPage = Application.Current.MainPage as Menu;
-                Prueba prueba = tabbedPage.Children[0] as Prueba;
-                prueba.ActualizarLista();
-                tabbedPage.CurrentPage = prueba;
+                await DisplayAlert("Exito", "Auto ha sido modificado.", "Ok");
             }
         
         }

@@ -3,18 +3,14 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:Renta_Carros"
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
-            android:TabbedPage.ToolbarPlacement="Bottom"
-            BarBackgroundColor="#5f5f5f"
-            BarTextColor="White"
             x:Class="Renta_Carros.Menu"
             Title="Menu"
             x:Name="MenuTabbedPage">
 
-    <local:Prueba Title="Inicio" IconImageSource="{FontImage FontFamily='fas', Glyph='&#xf015;', Size='30'}"></local:Prueba>
-    <!--<local:Inicio Title="Inicio"></local:Inicio>-->
-    <local:RentarCarro Title="Rentar" IconImageSource="{FontImage FontFamily='fas', Glyph='&#xf07a;', Size='30'}"></local:RentarCarro>
-    <local:AgregarCarro Title="Agregar" IconImageSource="{FontImage FontFamily='fas', Glyph='&#xf1b9;', Size='30'}"></local:AgregarCarro>
     
+    <local:AgregarCarro Title="Registrar" IconImageSource="{FontImage FontFamily='fas', Glyph='&#xf00c;'}"></local:AgregarCarro>
+    <local:Prueba Title="Lista" IconImageSource="{FontImage FontFamily='fas', Glyph='&#xf015;'}"></local:Prueba>
+    <local:RentarCarro Title="Rentar" IconImageSource="{FontImage FontFamily='fas', Glyph='&#xf02b;'}"></local:RentarCarro>
     
 
 </TabbedPage>

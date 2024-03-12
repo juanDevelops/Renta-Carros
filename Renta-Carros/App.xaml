@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <Style TargetType="Entry">
                 <Setter Property="BackgroundColor" Value="Transparent"/>
-                <Setter Property="TextColor" Value="#3d3d3d"/>
+                <Setter Property="TextColor" Value="White"/>
                 <Setter Property="PlaceholderColor" Value="#A3A3A3"/>
                 <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="Margin" Value="3"/>

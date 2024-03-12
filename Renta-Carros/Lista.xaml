@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Renta_Carros"
+             xmlns:local="clr-namespace:Renta_Carros"
+             x:Class="Renta_Carros.Prueba"
+             Title="Prueba">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <VerticalStackLayout Margin="10">
+            
+            <StackLayout Orientation="Horizontal" Margin="10" Spacing="5">
+                <Button x:Name="btnActualizar" Clicked="btnActualizar_Clicked" Text="Actualizar lista" HeightRequest="50" TextColor="White" Background="DarkGray"  HorizontalOptions="FillAndExpand" />
+                <Button x:Name="btnRentar" Clicked="btnRentar_Clicked" Text="Rentar" HeightRequest="50" TextColor="White" Background="DarkGray"  HorizontalOptions="FillAndExpand" />
+                <Button x:Name="btnModificar" Clicked="btnModificar_Clicked" Text="Modificar" HeightRequest="50" TextColor="White" Background="DarkGray"  HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </VerticalStackLayout>
+
+        <ListView x:Name="ListaCarros" ItemsSource="{Binding CarrosCollection}" SeparatorVisibility="Default" HasUnevenRows="True" Margin="10" SeparatorColor="Gray">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="10, 5, 10, 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="{Binding Imagen, Converter={StaticResource ByteArrayToImageConverter}}" HeightRequest="100" WidthRequest="200" />
+
+                            <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                <Label Text="Marca: " FontFamily="bold" TextColor="White" />
+                                <Label Text="{Binding Marca}" FontFamily="medium" TextColor="White" />
+                                <Label Text="Modelo: " FontFamily="bold" TextColor="White" />
+                                <Label Text="{Binding Modelo}" FontFamily="medium" TextColor="White" />
+                                <Label Text="Año: " FontFamily="bold" TextColor="White" />
+                                <Label Text="{Binding Año}" FontFamily="medium" TextColor="White" />
+                                <Label Text="Color: " FontFamily="bold" TextColor="White" />
+                                <Label Text="{Binding Color}" FontFamily="medium" TextColor="White" />
+                                <Label Text="Placas: " FontFamily="bold" TextColor="White" />
+                                <Label Text="{Binding Placas}" FontFamily="medium" TextColor="White" />
+                                <Label Text="Precio: " FontFamily="bold" TextColor="White" />
+                                <Label Text="{Binding Precio}" FontFamily="medium" TextColor="White" />
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+</ContentPage>
