@@ -5,9 +5,14 @@ namespace Renta_Carros;
 
 public partial class Prueba : ContentPage
 {
+
     public Prueba()
     {
         InitializeComponent();
+        if (true)
+        {
+
+        }
         BindingContext = null; // Establece el BindingContext en null
         BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
         ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;
@@ -54,7 +59,12 @@ public partial class Prueba : ContentPage
             tabbedPage.CurrentPage = modificarCarro;
         }
         else
-        {
+        { 
+            var tabbedPageMenu = Application.Current.MainPage as Menu;
+            Menu menu = tabbedPageMenu as Menu;
+
+
+            await DisplayAlert("Error", menu.ipv4, "Ok");
             await DisplayAlert("Error", "No se ha seleccionado ningún vehículo.", "Ok");
         }
     }

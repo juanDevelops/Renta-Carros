@@ -12,11 +12,22 @@ namespace Renta_Carros
 {
     class dbMethods
     {
-        string MONGODB_URI = "mongodb://192.168.1.74:27017";
+        static string ipv4C = "";
+
+        public dbMethods(String ipv4)
+        {
+            ipv4C = ipv4;
+        }
+
+        string MONGODB_URI = $"mongodb://{ipv4C}:27017";
         public string errorMessage = "";
 
         public void InsertarCarro(string filePath, string marca, string modelo, string año, string color, string placas, string precio)
         {
+            if (ipv4C == "")
+            {
+                return;
+            }
             var client = new MongoClient(MONGODB_URI);
             var database = client.GetDatabase("Carros");
             var carrosDB = database.GetCollection<Carros>("carros");
@@ -50,6 +61,10 @@ namespace Renta_Carros
 
         public List<Carros> ObtenerCarrosDisponibles()
         {
+            if (ipv4C == "")
+            {
+                return null;
+            }
             var client = new MongoClient(MONGODB_URI);
             var database = client.GetDatabase("Carros");
 
@@ -77,6 +92,10 @@ namespace Renta_Carros
 
         public bool ExisteCarroPorPlaca(string placa)
         {
+            if (ipv4C == "")
+            {
+                return false;
+            }
             var client = new MongoClient(MONGODB_URI);
             var database = client.GetDatabase("Carros");
 
@@ -101,6 +120,10 @@ namespace Renta_Carros
 
         public bool RentarCarro(string placas)
         {
+            if (ipv4C == "")
+            {
+                return false;
+            }
             var client = new MongoClient(MONGODB_URI);
             var database = client.GetDatabase("Carros");
 
@@ -127,6 +150,10 @@ namespace Renta_Carros
 
         public bool ModificarCarroPorPlaca(byte[] imagen, string nuevaMarca, string nuevoModelo, string nuevoAño, string nuevoColor, string nuevasPlacas, string nuevoPrecio)
         {
+            if (ipv4C == "")
+            {
+                return false;
+            }
             bool success = false;
 
             try

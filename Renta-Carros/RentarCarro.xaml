@@ -78,9 +78,9 @@
             <!--#endregion-->
 
             <!--#region DATEPICKER -->
-            <StackLayout Orientation="Vertical" Grid.Row="6" Margin="5,10,0,0" HorizontalOptions="Fill">
+            <StackLayout Orientation="Vertical" Grid.Row="6" Margin="5,10,0,0" HorizontalOptions="Fill" >
                 <Label Text="Fecha de entrega" HorizontalTextAlignment="Center" TextColor="#b4b5b7" FontFamily="bold" VerticalOptions="CenterAndExpand"/>
-                <Frame CornerRadius="30" BackgroundColor="#f1f0f0" BorderColor="#f1f0f0" HeightRequest="50" HorizontalOptions="FillAndExpand" Padding="5" Margin="10,0,0,0">
+                <Frame CornerRadius="30" BackgroundColor="#f1f0f0" BorderColor="#f1f0f0" HeightRequest="50" HorizontalOptions="FillAndExpand" Padding="5" Margin="10,0,0,0" >
                     <DatePicker x:Name="dpFechaEntrega" Margin="10,0,0,0" HorizontalOptions="CenterAndExpand" DateSelected="dpFechaEntrega_DateSelected" TextColor="#A3A3A3">
                     </DatePicker>
                 </Frame>

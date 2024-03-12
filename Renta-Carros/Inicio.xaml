@@ -7,7 +7,7 @@
     <Grid RowDefinitions="0.15*, 0.85*">
         <Grid BackgroundColor="Gray" HeightRequest="400"/>
 
-        <RoundRectangle Grid.Row="1" CornerRadius="30" Fill="White"/>
+        <RoundRectangle Grid.Row="1" CornerRadius="30,30,0,0" Fill="White"/>
 
         <Grid Grid.Row="1" RowSpacing="5" Margin="15,15,15,0">
             <Grid.RowDefinitions>
@@ -20,48 +20,26 @@
 
             <StackLayout Orientation="Vertical" Grid.Row="0">
                 <Label Text="Bienvenido" FontFamily="bold" FontSize="Title" TextColor="Black"/>
-                <Label Text="Selecciona un auto." FontFamily="medium" TextColor="Gray"/>
+                <Label Text="Introduzca la IPV4 del Servidor MongoDB." FontFamily="medium" TextColor="Gray"/>
             </StackLayout>
 
-            <!--#region CARRO -->
-            <Frame Grid.Row="1" CornerRadius="30" BackgroundColor="#f1f0f0" BorderColor="Transparent">
-                <HorizontalStackLayout  VerticalOptions="Center">
-                    <Image Source="toyota_hev.png"  HeightRequest="100" WidthRequest="100"/>
-                    <VerticalStackLayout Margin="10,0,0,0">
-                        <Label Text="Toyota Hev" FontFamily="bold"  TextColor="Black"/>
-                        <Label Text="$1000" FontFamily="medium" TextColor="Gray"/>
-                        <Label Text="ABC123" FontFamily="medium" TextColor="Gray"/>
-                        <Label Text="Color rojo" FontFamily="medium" TextColor="Gray"/>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </Frame>
+            <!--#region ENTRY PRECIO -->
+            <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="Fill">
+                <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
+                    <StackLayout Orientation="Horizontal" HeightRequest="50">
+                        <Entry x:Name="tbIp" HorizontalTextAlignment="Center" FontFamily="medium" Placeholder="Ipv4" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
             <!--#endregion-->
 
-            <!--#region CARRO -->
-            <Frame Grid.Row="2" CornerRadius="30" BackgroundColor="#f1f0f0" BorderColor="Transparent">
-                <HorizontalStackLayout  VerticalOptions="Center">
-                    <Image Source="toyota_hev.png"  HeightRequest="100" WidthRequest="100"/>
-                    <VerticalStackLayout Margin="10,0,0,0">
-                        <Label x:Name="Marca" Text="Toyota Hev" FontFamily="bold"  TextColor="Black"/>
-                        <Label x:Name="Modelo" Text="$1000" FontFamily="medium" TextColor="Black"/>
-                        <Label x:Name="Año" Text="ABC123" FontFamily="medium" TextColor="Gray"/>
-                        <Label x:Name="Color" Text="Color rojo" FontFamily="medium" TextColor="Gray"/>
-                        <Label x:Name="Placas" Text="Color rojo" FontFamily="medium" TextColor="Gray"/>
-                        <Label x:Name="Precio" Text="Color rojo" FontFamily="medium" TextColor="Gray"/>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </Frame>
-            <!--#endregion-->
-
-            <!--#region BOTON GUARDAR -->
+            <!--#region BOTON ENTRAR -->
             <Grid Grid.Row="4">
                 <StackLayout Orientation="Horizontal">
-                    <Button x:Name="btnPrueba" Text="prueba" Clicked="btnPrueba_Clicked" HeightRequest="50" TextColor="White" Background="#fcc" CornerRadius="30" HorizontalOptions="FillAndExpand" />
+                    <Button x:Name="btnEntrar" Text="Iniciar" Clicked="btnEntrar_Clicked_1" HeightRequest="50" TextColor="White" Background="LightBlue" CornerRadius="30" HorizontalOptions="FillAndExpand" />
                 </StackLayout>
             </Grid>
             <!--#endregion-->
-
-            
 
         </Grid>
     </Grid>

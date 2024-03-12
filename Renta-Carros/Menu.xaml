@@ -10,8 +10,9 @@
             Title="Menu"
             x:Name="MenuTabbedPage">
 
-    <local:Prueba Title="Inicio" IconImageSource="{FontImage FontFamily='fas', Glyph='&#xf015;', Size='30'}"></local:Prueba>
-    <!--<local:Inicio Title="Inicio"></local:Inicio>-->
+    <local:Inicio Title="Inicio"></local:Inicio>
+    <local:Prueba Title="Lista"  IconImageSource="{FontImage FontFamily='fas', Glyph='&#xf015;', Size='30'}"></local:Prueba>
+    
     <local:RentarCarro Title="Rentar" IconImageSource="{FontImage FontFamily='fas', Glyph='&#xf07a;', Size='30'}"></local:RentarCarro>
     <local:AgregarCarro Title="Agregar" IconImageSource="{FontImage FontFamily='fas', Glyph='&#xf1b9;', Size='30'}"></local:AgregarCarro>
     

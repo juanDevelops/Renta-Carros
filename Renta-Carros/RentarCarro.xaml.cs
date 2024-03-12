@@ -8,7 +8,6 @@ public partial class RentarCarro : ContentPage
         
 	}
 
-    dbMethods db = new dbMethods();
 
     public void RellenarDatos(string placas, string precio)
     {
@@ -76,6 +75,9 @@ public partial class RentarCarro : ContentPage
 
     private async void btnGuardar_Clicked_1(object sender, EventArgs e)
     {
+        var tabbedPage = Application.Current.MainPage as Menu;
+        Menu menu = tabbedPage as Menu;
+        dbMethods db = new dbMethods(tabbedPage.ipv4);
         // validar que todos los datos hayan sido ingresados.
         if (string.IsNullOrEmpty(tbCliente.Text) ||
             string.IsNullOrEmpty(tbTelefono.Text) ||

@@ -14,13 +14,16 @@ namespace Renta_Carros
     		InitializeComponent();
     	}
 
-        dbMethods db = new dbMethods();
+
+        
     	String filePath = "";
         byte[] imagenBytes = null;
 
         private async void btnAgregar_Clicked(object sender, EventArgs e)
         {
-            var tabbedPage = App.Current.MainPage as TabbedPage;
+            var tabbedPage = Application.Current.MainPage as Menu;
+            Menu menu = tabbedPage as Menu;
+            dbMethods db = new dbMethods(tabbedPage.ipv4);
             Prueba prueba = new Prueba();
 
             // Validar que ninguno de los parámetros sea nulo
@@ -87,6 +90,10 @@ namespace Renta_Carros
 
         private async void btnModificar_Clicked(object sender, EventArgs e)
         {
+            var tabbedPage = Application.Current.MainPage as Menu;
+            Menu menu = tabbedPage as Menu;
+            dbMethods db = new dbMethods(tabbedPage.ipv4);
+
             if (imagenBytes==null)
             {
                 imagenBytes = File.ReadAllBytes(filePath);
@@ -97,7 +104,6 @@ namespace Renta_Carros
                 await DisplayAlert("Error", $"Auto ha sido modificado.", "Ok");
                 //await DisplayActionSheet("Elige", "Nose", "Nose 2");
                 await DisplayPromptAsync("Titulo", "asdf");
-                var tabbedPage = Application.Current.MainPage as Menu;
                 Prueba prueba = tabbedPage.Children[0] as Prueba;
                 prueba.ActualizarLista();
                 tabbedPage.CurrentPage = prueba;

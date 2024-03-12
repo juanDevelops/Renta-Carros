@@ -48,15 +48,25 @@ namespace Renta_Carros
 
         public CarrosViewModel()
         {
-            dbMethods db = new dbMethods();
-            List<Carros> documents = db.ObtenerCarrosDisponibles();
-
-            CarrosCollection = new ObservableCollection<Carros>();
-
-            foreach (var document in documents)
+            var tabbedPage = Application.Current.MainPage as Menu;
+            Menu menu = tabbedPage as Menu;
+            try
             {
-                CarrosCollection.Add(new Carros() { Imagen= document.Imagen, Marca=document.Marca, Modelo= document.Modelo, Año= document.Año, Color= document.Color, Placas= document.Placas, Precio= document.Precio });
+                dbMethods db = new dbMethods(tabbedPage.ipv4);
+                List<Carros> documents = db.ObtenerCarrosDisponibles();
+
+                CarrosCollection = new ObservableCollection<Carros>();
+
+                foreach (var document in documents)
+                {
+                    CarrosCollection.Add(new Carros() { Imagen = document.Imagen, Marca = document.Marca, Modelo = document.Modelo, Año = document.Año, Color = document.Color, Placas = document.Placas, Precio = document.Precio });
+                }
             }
+            catch (Exception)
+            {
+
+            }
+            
         }
     }
 }
