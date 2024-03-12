@@ -94,7 +94,11 @@ public partial class RentarCarro : ContentPage
             return;
         }
 
-        db.RentarCarro(tbPlacas.Text);
+        if (db.RentarCarro(tbPlacas.Text))
+        {
+            await DisplayAlert("Exito", "Vehiculo rentado.", "Ok");
+        }
+       
     }
 
     private void btnCerrar_Clicked_1(object sender, EventArgs e)

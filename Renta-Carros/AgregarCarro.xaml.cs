@@ -92,7 +92,7 @@ namespace Renta_Carros
                 imagenBytes = File.ReadAllBytes(filePath);
             }
 
-            if (db.ModificarCarro(imagenBytes, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text))
+            if (db.ModificarCarroPorPlaca(imagenBytes, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text))
             {
                 await DisplayAlert("Error", $"Auto ha sido modificado.", "Ok");
                 //await DisplayActionSheet("Elige", "Nose", "Nose 2");

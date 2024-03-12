@@ -48,23 +48,6 @@ namespace Renta_Carros
             carrosDB.InsertOne(Carro);
         }
 
-        public List<BsonDocument> GetAllDocumentsFromCollection()
-        {
-            var client = new MongoClient(MONGODB_URI);
-            var database = client.GetDatabase("Carros");
-
-            try
-            {
-                var collection = database.GetCollection<BsonDocument>("carros");
-                return collection.Find(new BsonDocument()).ToList();
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-                return null;
-            }
-        }
-
         public List<Carros> ObtenerCarrosDisponibles()
         {
             var client = new MongoClient(MONGODB_URI);
@@ -142,7 +125,7 @@ namespace Renta_Carros
             }
         }
 
-        public bool ModificarCarro(byte[] imagen, string nuevaMarca, string nuevoModelo, string nuevoAño, string nuevoColor, string nuevasPlacas, string nuevoPrecio)
+        public bool ModificarCarroPorPlaca(byte[] imagen, string nuevaMarca, string nuevoModelo, string nuevoAño, string nuevoColor, string nuevasPlacas, string nuevoPrecio)
         {
             bool success = false;
 
