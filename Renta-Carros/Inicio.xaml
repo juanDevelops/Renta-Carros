@@ -5,7 +5,7 @@
              Title="Inicio">
 
     <Grid RowDefinitions="0.15*, 0.85*">
-        <Grid BackgroundColor="Gray" HeightRequest="400"/>
+        <Grid BackgroundColor="LightBlue" HeightRequest="400"/>
 
         <RoundRectangle Grid.Row="1" CornerRadius="30,30,0,0" Fill="White"/>
 
@@ -20,14 +20,14 @@
 
             <StackLayout Orientation="Vertical" Grid.Row="0">
                 <Label Text="Bienvenido" FontFamily="bold" FontSize="Title" TextColor="Black"/>
-                <Label Text="Introduzca la IPV4 del Servidor MongoDB." FontFamily="medium" TextColor="Gray"/>
+                <Label Text="Introduzca la IP del Servidor MongoDB." FontFamily="medium" TextColor="Gray"/>
             </StackLayout>
 
             <!--#region ENTRY PRECIO -->
             <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="Fill">
                 <Frame BackgroundColor="#f1f0f0" BorderColor="Transparent" Padding="0" HorizontalOptions="Fill" CornerRadius="30" VerticalOptions="Fill" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" HeightRequest="50">
-                        <Entry x:Name="tbIp" HorizontalTextAlignment="Center" FontFamily="medium" Placeholder="Ipv4" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
+                        <Entry x:Name="tbIp" HorizontalTextAlignment="Center" FontFamily="medium" Placeholder="IP" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="10,0,20,0" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
