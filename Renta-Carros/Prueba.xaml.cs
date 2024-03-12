@@ -8,7 +8,9 @@ public partial class Prueba : ContentPage
     public Prueba()
     {
         InitializeComponent();
-        
+        BindingContext = null; // Establece el BindingContext en null
+        BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
+        ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;
     }
 
 
@@ -46,7 +48,7 @@ public partial class Prueba : ContentPage
             BsonBinaryData imageData = carroSeleccionado.Imagen;
             byte[] imageBytes = imageData.Bytes;
             ImageSource sourceImagen = ImageSource.FromStream(() => new MemoryStream(imageBytes));
-            modificarCarro.RellenarDatos(carroSeleccionado.Marca.ToString(), carroSeleccionado.Modelo.ToString(), carroSeleccionado.Año.ToString(), carroSeleccionado.Color.ToString(), carroSeleccionado.Placas.ToString(), carroSeleccionado.Precio.ToString(), sourceImagen);
+            modificarCarro.RellenarDatos(carroSeleccionado.Marca.ToString(), carroSeleccionado.Modelo.ToString(), carroSeleccionado.Año.ToString(), carroSeleccionado.Color.ToString(), carroSeleccionado.Placas.ToString(), carroSeleccionado.Precio.ToString(), sourceImagen, imageBytes);
             //var mensaje = $"Marca: {carroSeleccionado.Marca}\nModelo: {carroSeleccionado.Modelo}\nAño: {carroSeleccionado.Año}";
             //await DisplayAlert("Información del vehículo", mensaje, "Ok");
             tabbedPage.CurrentPage = modificarCarro;
@@ -57,10 +59,17 @@ public partial class Prueba : ContentPage
         }
     }
 
-    private async void btnActualizar_Clicked(object sender, EventArgs e)
+    public void btnActualizar_Clicked(object sender, EventArgs e)
     {
         //await Navigation.PopAsync();
         //await Navigation.PushAsync(new Prueba());
+        BindingContext = null; // Establece el BindingContext en null
+        BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
+        ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;
+    }
+
+    public void ActualizarLista()
+    {
         BindingContext = null; // Establece el BindingContext en null
         BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
         ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;

@@ -142,6 +142,36 @@ namespace Renta_Carros
             }
         }
 
+        public bool ModificarCarro(byte[] imagen, string nuevaMarca, string nuevoModelo, string nuevoAño, string nuevoColor, string nuevasPlacas, string nuevoPrecio)
+        {
+            bool success = false;
+
+            try
+            {
+                var client = new MongoClient(MONGODB_URI);
+                var database = client.GetDatabase("Carros");
+                var collection = database.GetCollection<BsonDocument>("carros");
+                
+                var filter = Builders<BsonDocument>.Filter.Eq("placas", (nuevasPlacas));
+                var update = Builders<BsonDocument>.Update
+                    .Set("imagen", imagen)
+                    .Set("marca", nuevaMarca)
+                    .Set("modelo", nuevoModelo)
+                    .Set("año", nuevoAño)
+                    .Set("color", nuevoColor)
+                    .Set("placas", nuevasPlacas)
+                    .Set("precio", nuevoPrecio);
+
+                collection.UpdateOne(filter, update);
+                return success = true;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.Message;
+                return success;
+            }
+
+        }
 
     }
 }

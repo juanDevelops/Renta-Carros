@@ -1,87 +1,108 @@
 
-namespace Renta_Carros;
+using Microsoft.Maui.Controls.Internals;
+using Microsoft.Maui.Controls.Platform;
+using MongoDB.Bson;
+using System.IO;
+using Microsoft.Maui.Graphics;
 
-public partial class AgregarCarro : ContentPage
+namespace Renta_Carros
 {
-	public AgregarCarro()
-	{
-		InitializeComponent();
-	}
-
-    dbMethods db = new dbMethods();
-	String filePath = "";
-
-    private async void btnAgregar_Clicked(object sender, EventArgs e)
+    public partial class AgregarCarro : ContentPage
     {
-        // Validar que ninguno de los parámetros sea nulo
-        if (!string.IsNullOrEmpty(tbMarca.Text) &&
-            !string.IsNullOrEmpty(tbModelo.Text) &&
-            !string.IsNullOrEmpty(tbAño.Text) &&
-            !string.IsNullOrEmpty(tbColor.Text) &&
-            !string.IsNullOrEmpty(tbPlacas.Text) &&
-            !string.IsNullOrEmpty(tbPrecio.Text) &&
-            filePath != "")
+    	public AgregarCarro()
+    	{
+    		InitializeComponent();
+    	}
+
+        dbMethods db = new dbMethods();
+    	String filePath = "";
+        byte[] imagenBytes = null;
+
+        private async void btnAgregar_Clicked(object sender, EventArgs e)
         {
-            // Llamar al método InsertarCarro si todos los parámetros son válidos
-            db.InsertarCarro(filePath, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text);
-            await Navigation.PopAsync();
-            await Navigation.PushAsync(new Prueba());
-            await DisplayAlert("Aviso", "Nuevo auto registrado exitosamente.", "Ok");
-        }
-        else
-        {
-            await DisplayAlert("Error", "Todos los campos son requeridos", "Ok");
-            return;
+            var tabbedPage = App.Current.MainPage as TabbedPage;
+            Prueba prueba = new Prueba();
+
+            // Validar que ninguno de los parámetros sea nulo
+            if (!string.IsNullOrEmpty(tbMarca.Text) &&
+                !string.IsNullOrEmpty(tbModelo.Text) &&
+                !string.IsNullOrEmpty(tbAño.Text) &&
+                !string.IsNullOrEmpty(tbColor.Text) &&
+                !string.IsNullOrEmpty(tbPlacas.Text) &&
+                !string.IsNullOrEmpty(tbPrecio.Text) &&
+                filePath != "")
+            {
+                // Llamar al método InsertarCarro si todos los parámetros son válidos
+                db.InsertarCarro(filePath, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text);
+                prueba.ActualizarLista();
+                await DisplayAlert("Aviso", "Nuevo auto registrado exitosamente.", "Ok");
+            }
+            else
+            {
+                await DisplayAlert("Error", "Todos los campos son requeridos", "Ok");
+                return;
+            }
+
+            #region LIMPIAR CAMPOS
+            tbMarca.Text = "";
+    		tbModelo.Text = "";
+    		tbAño.Text = "";
+    		tbColor.Text = "";
+    		tbPlacas.Text = "";
+    		tbPrecio.Text = "";
+    		imgCarro.Source = "";
+            #endregion
         }
 
-        #region LIMPIAR CAMPOS
-        tbMarca.Text = "";
-		tbModelo.Text = "";
-		tbAño.Text = "";
-		tbColor.Text = "";
-		tbPlacas.Text = "";
-		tbPrecio.Text = "";
-		imgCarro.Source = "";
-        #endregion
-    }
-
-    private async void btnCargarFoto_Clicked(object sender, EventArgs e)
-    {
-		try
-		{
-			var resultado = await MediaPicker.PickPhotoAsync();
+        private async void btnCargarFoto_Clicked(object sender, EventArgs e)
+        {
+    		try
+    		{
+    			var resultado = await MediaPicker.PickPhotoAsync();
 			
-            if (resultado != null)
-			{
-                filePath = resultado.FullPath;
-                imgCarro.Source = ImageSource.FromStream(() => resultado.OpenReadAsync().Result);
-			}
-		}
-		catch (Exception ex)
-		{
-			await DisplayAlert("Error", $"Error al cargar la imagen {ex.Message}", "Ok");
-		}
-    }
+                if (resultado != null)
+    			{
+                    filePath = resultado.FullPath;
+                    imgCarro.Source = ImageSource.FromStream(() => resultado.OpenReadAsync().Result);
+                    imagenBytes = null;
+    			}
+    		}
+    		catch (Exception ex)
+    		{
+    			await DisplayAlert("Error", $"Error al cargar la imagen {ex.Message}", "Ok");
+    		}
+        }
 
-    public void RellenarDatos(string marca, string modelo, string año, string color, string placas, string precio, ImageSource source)
-    {
-        imgCarro.Source = source;
-        tbMarca.Text = marca;
-        tbModelo.Text = modelo;
-        tbAño.Text = año;
-        tbColor.Text = color;
-        tbPlacas.Text = placas;
-        tbPrecio.Text = precio;
-    }
+        public void RellenarDatos(string marca, string modelo, string año, string color, string placas, string precio, ImageSource source, byte[] imageBytes)
+        {
+            imagenBytes = imageBytes;
+            imgCarro.Source = source;
+            tbMarca.Text = marca;
+            tbModelo.Text = modelo;
+            tbAño.Text = año;
+            tbColor.Text = color;
+            tbPlacas.Text = placas;
+            tbPrecio.Text = precio;
+        }
 
-    private void btnModificar_Clicked(object sender, EventArgs e)
-    {
-        //IPAddress[] addresses = Dns.GetHostAddresses("localhost");
-        //foreach (IPAddress address in addresses)
-        //{
-        //    await DisplayAlert("Error", address.ToString(), "Ok");
-        //}
+        private async void btnModificar_Clicked(object sender, EventArgs e)
+        {
+            if (imagenBytes==null)
+            {
+                imagenBytes = File.ReadAllBytes(filePath);
+            }
 
-        //await DisplayAlert("Error", db.GetLocalIPv4(), "Ok");
+            if (db.ModificarCarro(imagenBytes, tbMarca.Text, tbModelo.Text, tbAño.Text, tbColor.Text, tbPlacas.Text, tbPrecio.Text))
+            {
+                await DisplayAlert("Error", $"Auto ha sido modificado.", "Ok");
+                //await DisplayActionSheet("Elige", "Nose", "Nose 2");
+                await DisplayPromptAsync("Titulo", "asdf");
+                var tabbedPage = Application.Current.MainPage as Menu;
+                Prueba prueba = tabbedPage.Children[0] as Prueba;
+                prueba.ActualizarLista();
+                tabbedPage.CurrentPage = prueba;
+            }
+        
+        }
     }
 }
