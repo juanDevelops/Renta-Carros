@@ -1,5 +1,7 @@
 using Microsoft.Maui.Controls;
 using MongoDB.Bson;
+using Org.Apache.Http.Authentication;
+using System.Collections.ObjectModel;
 
 namespace Renta_Carros;
 
@@ -13,9 +15,33 @@ public partial class Prueba : ContentPage
         {
 
         }
-        BindingContext = null; // Establece el BindingContext en null
-        BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
-        ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;
+        //BindingContext = null; // Establece el BindingContext en null
+        //BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
+        //ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;
+    }
+
+    public ObservableCollection<Carros> AutosList { get; set; }
+
+    public async void CargarAutos()
+    {
+        var tabbedPage = Application.Current.MainPage as Menu;
+        Menu menu = tabbedPage as Menu;
+        dbMethods db = new dbMethods(tabbedPage.ipv4);
+
+        try
+        {
+            var autos = await db.ObtenerAutos();
+            AutosList = new ObservableCollection<Carros>();
+            ListaCarros.ItemsSource = AutosList;
+            foreach (var auto in autos)
+            {
+                AutosList.Add(auto);
+            }
+        }
+        catch (Exception)
+        {
+
+        }
     }
 
 
@@ -71,11 +97,12 @@ public partial class Prueba : ContentPage
 
     public void btnActualizar_Clicked(object sender, EventArgs e)
     {
+        CargarAutos();
         //await Navigation.PopAsync();
         //await Navigation.PushAsync(new Prueba());
-        BindingContext = null; // Establece el BindingContext en null
-        BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
-        ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;
+        //BindingContext = null; // Establece el BindingContext en null
+        //BindingContext = new CarrosViewModel(); // Crea una nueva instancia de tu ViewModel y establece el BindingContext nuevamente
+        //ListaCarros.ItemsSource = (BindingContext as CarrosViewModel).CarrosCollection;
     }
 
     public void ActualizarLista()

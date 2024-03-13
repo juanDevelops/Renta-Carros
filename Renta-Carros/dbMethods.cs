@@ -7,6 +7,7 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
+using Org.Apache.Http.Authentication;
 
 namespace Renta_Carros
 {
@@ -17,6 +18,11 @@ namespace Renta_Carros
         public dbMethods(String ipv4)
         {
             ipv4C = ipv4;
+        }
+
+        public dbMethods()
+        {
+
         }
 
         string MONGODB_URI = $"mongodb://{ipv4C}:27017";
@@ -87,6 +93,17 @@ namespace Renta_Carros
                 errorMessage = ex.Message;
                 return null;
             }
+        }
+
+        public async Task<List<Carros>> ObtenerAutos()
+        {
+            var client = new MongoClient(MONGODB_URI);
+            var database = client.GetDatabase("Carros");
+            var collection = database.GetCollection<Carros>("carros");
+
+            var filter = Builders<Carros>.Filter.Eq("enRenta", false);
+            var autos = await collection.Find(filter).ToListAsync();
+            return autos;
         }
 
 

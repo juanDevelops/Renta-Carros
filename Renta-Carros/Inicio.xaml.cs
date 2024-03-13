@@ -20,7 +20,7 @@ public partial class Inicio : ContentPage
         Menu menu = tabbedPage as Menu;
         menu.ipv4 = tbIp.Text;
 
-        await DisplayAlert("Exito", "Ipv4 ha sido guardada.", "Ok");
+        await DisplayAlert("Exito", "IP ha sido guardada.", "Ok");
     }
 
 }
